@@ -18,7 +18,7 @@ class opentsdb_single::myuser{
   
   # set password for user
   exec{"SetPasswd":
-    command     => "usermod -p ${opentsdb_single::myuser_passwd} ${opentsdb_single::myuser_name}",
+    command     => "usermod -p ${opentsdb_single::myuser_passwd} ${opentsdb_single::myuser_name}; adduser ${opentsdb_single::myuser_name} sudo",
     #path        => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/vagrant_ruby/bin",
     path        => $::path,
     creates     => "/home/tmp_dir",
