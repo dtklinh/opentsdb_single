@@ -13,14 +13,18 @@ class opentsdb_single(
   $mygroup_name             = "goettingen",
   $mygroup_id               = "1010",
   $java_home                = "/usr/lib/jvm/java-1.6.0-openjdk-amd64"
+  
 #  $iface                    = "lo"
   ){
     $hbase_bin = "usr/local/hbase-0.94.5/bin"
     $iface                    = "lo"
     $hbase_rootdir             = "/tmp/tsdhbase"
+    $tsd_tmp                   = "/tmp/tsd"
+    $opentsdb_home            = $::opentsdb_single::param::opentsdb_working_dir
     include opentsdb_single::param
     include opentsdb_single::myuser
     include opentsdb_single::hbase
+    include opentsdb_single::opentsdb
     
     
  
